@@ -1,6 +1,6 @@
 # Простой Калькулятор
 
-Простое приложение-калькулятор, разработанное на JavaScript, HTML и CSS. Программа выполняет основные арифметические операции: сложение, вычитание, умножение и деление.
+Это простое приложение-калькулятор, разработанное с использованием JavaScript, HTML и CSS. Программа выполняет основные арифметические операции: сложение, вычитание, умножение и деление. Каждый результат отображается в новом элементе на странице, который можно удалить, нажав на него.
 
 ## Демо
 
@@ -9,55 +9,51 @@
 ## Особенности
 
 - Поддерживает сложение, вычитание, умножение и деление.
-- Мгновенно вычисляет результат на основе введённых данных.
+- Каждый результат отображается в отдельном `div`, который появляется под калькулятором.
+- Удаление результата по клику на него.
 
 ## Как это работает
 
-Данный проект представляет собой простую реализацию калькулятора с использованием чистого JavaScript. Приложение получает данные из двух полей `<input>`, выбирает оператор из `<select>` и рассчитывает результат при нажатии на кнопку "равно".
+Калькулятор принимает два числа из полей `<input>`, выбирает оператор из выпадающего списка `<select>`, а затем выводит результат операции в новом `div` при нажатии на кнопку "равно". Каждый новый `div` можно удалить, просто нажав на него.
 
 ## Обзор кода
 
-Основной код JavaScript выбирает элементы по их ID:
+Основной код JavaScript выглядит следующим образом:
 
 ```javascript
 const num1 = document.getElementById("num1");
 const num2 = document.getElementById("num2");
 const operator = document.getElementById("operator");
 const equalsBtn = document.getElementById("equals-btn");
-const result = document.getElementById("result");
-Функциональность
-Функция operationResult выполняет вычисление в зависимости от выбранного оператора:
-
-Если оператор "+", выполняется сложение.
-Если оператор "-", из num1 вычитается num2.
-Если оператор "*", выполняется умножение.
-Если оператор "/", выполняется деление num1 на num2.
-Результат вычисления отображается в элементе result:
 
 function operationResult() {
+  const newDiv = document.createElement("div");
+  newDiv.classList.add("result");
+
   if (operator.value === "+") {
-    result.textContent = +num1.value + +num2.value;
+    newDiv.textContent = +num1.value + +num2.value;
   } else if (operator.value === "-") {
-    result.textContent = +num1.value - +num2.value;
+    newDiv.textContent = +num1.value - +num2.value;
   } else if (operator.value === "*") {
-    result.textContent = +num1.value * +num2.value;
+    newDiv.textContent = +num1.value * +num2.value;
   } else if (operator.value === "/") {
-    result.textContent = +num1.value / +num2.value;
+    newDiv.textContent = +num1.value / +num2.value;
   }
+
+  newDiv.addEventListener("click", () => {
+    newDiv.remove();
+  });
+
+  document.body.appendChild(newDiv);
 }
-Кнопка "равно" использует обработчик событий для запуска функции operationResult:
 
 equalsBtn.addEventListener("click", operationResult);
 ```
-## Что вы изучите
 
-Изучая этот проект, можно освоить:
+## Использованные технологии и методы
+В этом проекте использованы:
 
-- Работу с элементами DOM и обработчиками событий в JavaScript.
-- Выполнение простых арифметических операций в JavaScript.
-- Использование метода addEventListener для взаимодействия с пользователем.
-- Динамическое обновление содержимого на веб-странице.
-
-## Требования
-Базовые знания HTML, CSS и JavaScript.
-
+- Основы работы с элементами DOM и манипуляции ими в JavaScript.
+- Выполнение арифметических операций на основе введенных данных.
+- Динамическое создание и удаление элементов на странице.
+- Обработчик событий addEventListener для взаимодействия с элементами страницы.
