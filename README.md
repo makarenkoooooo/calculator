@@ -34,8 +34,6 @@ const result = document.getElementById("result");
 Если оператор "/", выполняется деление num1 на num2.
 Результат вычисления отображается в элементе result:
 
-javascript
-Копировать код
 function operationResult() {
   if (operator.value === "+") {
     result.textContent = +num1.value + +num2.value;
@@ -49,8 +47,8 @@ function operationResult() {
 }
 Кнопка "равно" использует обработчик событий для запуска функции operationResult:
 
-``` javascript
 equalsBtn.addEventListener("click", operationResult);
+```
 ## Что вы изучите
 
 Изучая этот проект, можно освоить:
