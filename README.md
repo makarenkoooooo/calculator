@@ -49,7 +49,7 @@ function operationResult() {
 }
 Кнопка "равно" использует обработчик событий для запуска функции operationResult:
 
-javascript
+``` javascript
 equalsBtn.addEventListener("click", operationResult);
 ## Что вы изучите
 
