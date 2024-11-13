@@ -30,6 +30,7 @@ function operationResult() {
   const newDiv = document.createElement("div");
   newDiv.classList.add("result");
 
+  // Проверяем оператор и выполняем соответствующую операцию
   if (operator.value === "+") {
     newDiv.textContent = +num1.value + +num2.value;
   } else if (operator.value === "-") {
@@ -40,6 +41,7 @@ function operationResult() {
     newDiv.textContent = +num1.value / +num2.value;
   }
 
+  // Добавляем обработчик события для удаления `div` при клике
   newDiv.addEventListener("click", () => {
     newDiv.remove();
   });
